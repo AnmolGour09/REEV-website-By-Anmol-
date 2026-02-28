@@ -108,6 +108,7 @@ function Nav() {
     { name: "REEV", href: "/reev" },
     { name: "ACHIEVEMENTS", href: "/achievements" },
     { name: "TEAM", href: "/team1" },
+    { name: "DEVELOPERS", href: "/team1c" },
     { name: "JOIN US", href: "/joinus" },
   ];
 

@@ -3,19 +3,21 @@ import "./Team1c.css";
 
 // Assets
 import M3 from "../../assets/Boy.jpg";
-import M4 from "../../assets/Dri.jpg";
+import M4 from "../../assets/Anmol.png";
 import M5 from "../../assets/Mem1.jpg";
+import Footer from "../Footer/Footer.jsx";
+
 
 const movies = [
   {
-    name: "Mukul Wadhokar (Captain)",
-    des: "Mechanical Powertrain",
+    name: "Sanika ",
+    des: "computer science",
     img: M4,
     link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
   },
   {
-    name: "Darshak Kamani (Driver)",
-    des: "Mechanical Powertrain",
+    name: "Anmol Gour",
+    des: "Computer Science",
     img: M4,
     link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
   },
@@ -25,27 +27,16 @@ const movies = [
     img: M4,
     link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
   },
-  {
-    name: "Ajay Sawant",
-    des: "Mechanical Powertrain",
-    img: M4,
-    link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
-  },
-  {
-    name: "Parshwal Gujar",
-    des: "Mechanical Powertrain",
-    img: M4,
-    link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
-  },
-  {
-    name: "Bilal Ali Shaikh",
-    des: "Mechanical Powertrain",
-    img: M4,
-    link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
-  },
+  
 ];
 
 const MoviesCarousel = () => {
+  const [animate, setAnimate] = useState(false);
+      const sectionRef = useRef(null);
+    
+      useEffect(() => {
+        setAnimate(true);
+      }, []);
   const containerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
@@ -84,7 +75,24 @@ const MoviesCarousel = () => {
     return () => stopAutoScroll();
   }, []);
 
+  
   return (
+    <main className="w-full bg-[#101010] min-h-screen pt-20 lg:pt-24" style={{ position: 'relative', zIndex: 1 }}>
+        {/* container 1 */}
+        <section className="relative z-10">
+          <div className=" mx-auto px-4 pt-[20%] sm:pt-[15%] md:pt-[1%] pb-[12%] md:pb-[5%]">
+            <div className="text-center relative">
+              <div className="Jointe">
+                <h2 className={`learn-mo-line ${animate ? "active" : ""}`}>
+                  <span className="section-heading">Developer Team</span>
+                </h2>
+              </div>
+            </div>
+          </div>
+        </section>
+  
+        <hr className="bg-black border-b border-red-500" />
+  
     <div
       className="movies-list"
       onMouseEnter={stopAutoScroll}
@@ -96,19 +104,18 @@ const MoviesCarousel = () => {
         {movies.map((m, idx) => (
           <div className="card" key={idx}>
             <div className="card-img-blur-wrapper">
-              <img src={m.img} alt={m.name} className="card-img" />
+              <img src={m.img} alt={m.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
             </div>
             <div className="card-body">
               <h2 className="name">{m.name}</h2>
-              <br />
-              <h6 className="des">{m.des}</h6>
+              <h6 className="Anmol">{m.des}</h6>
 
               {m.link && (
                 <a
                   href={m.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="linkedin-btn"
+                  className="absolute bottom-3 right-3 bg-blue-600 text-white px-3 py-2 rounded-full flex items-center gap-2 hover:bg-blue-700 transition"
                 >
                   View LinkedIn
                   <svg
@@ -148,6 +155,8 @@ const MoviesCarousel = () => {
         ))}
       </div>
     </div>
+    <Footer />
+      </main>
   );
 };
 

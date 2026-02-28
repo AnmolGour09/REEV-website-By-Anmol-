@@ -2,6 +2,9 @@
     width: 100%;
     overflow: hidden;
     position: relative;
+    margin: 90px 0 20px !important;
+    background: transparent !important;
+
   }
   
   .card-container {
@@ -19,7 +22,7 @@
     scroll-snap-align: start;
     border-radius: 12px;
     overflow: hidden;
-    margin: 8px;
+    margin: 0px;
   }
   
   .card-img {
@@ -62,19 +65,22 @@
   
   /* Title */
   .name {
-    color: #ff0000;
+    color: #fc0000 !important;
     font-size: 2rem;
     margin: 0;
     text-transform: capitalize;
+    
   }
   
   /* Description */
-  .des {
-    color: #ffffff;
+
+  .Anmol{
+    color: #fefefe;
     opacity: 0.8;
     font-weight: 500;
     font-size: 0.9rem;
-    margin: 0;
+    margin-bottom: 5%;
+    ;
   }
   
   /* LinkedIn Button */
@@ -109,14 +115,14 @@
   .indicator {
     width: 10px;
     height: 10px;
-    border-radius: 50%;
-    background: #bbb;
+    border-radius: 100%;
+    background: #ff000040;
     cursor: pointer;
     transition: background 0.3s;
   }
   
   .indicator.active {
-    background: #0077b5;
+    background: #ff0101;
   }
   
   /* =========================
