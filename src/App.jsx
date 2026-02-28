@@ -5,7 +5,7 @@ import Index from "./Components/Page/Index";
 import Achievements from "./Components/Achievements/Achievements";
 import logo from "./assets/logo.png";
 import applogo from "./assets/gears-138199.gif";
-import About from "./Components/GoKart/Gokart";
+import About from "./Components/Gokart/Gokart";
 
 import Reev from "./Components/Reev/Reev";
 import Team1 from "./Components/Team2018-2019/Team1";
