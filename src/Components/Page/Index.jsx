@@ -564,9 +564,9 @@ export default function Index() {
                         color: "red",
                       }}
                     >
-                      REEV{" "}
+                      About{" "}
                     </span>
-                    Racer
+                    Reev
                   </h3>
                 </div>
                 <div className="card-content">
@@ -616,9 +616,9 @@ export default function Index() {
                         color: "red",
                       }}
                     >
-                      REEV{" "}
+                      About{" "}
                     </span>{" "}
-                    GoCar
+                    GoKart
                   </h3>
                 </div>
                 <div className="card-content">
@@ -640,7 +640,7 @@ export default function Index() {
                     aligned to take this opportunity to develop indigenous solutions
                     for the Indian market."
                   </p>
-                  <Link to="/gocart">
+                  <Link to="/Gokart">
                   <button className="vehicle-cta">
                     <span
                       className="about-reev-heading"
