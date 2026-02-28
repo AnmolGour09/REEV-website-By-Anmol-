@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -8,10 +9,11 @@ function Footer() {
         <div className="mx-auto flex flex-wrap justify-center items-center gap-4 text-base py-6 mt-10">
           {[
           {name:"Home", href: "/"},
-          {name:"Achievements", href: "/achievements"},
-          {name:"Team", href: "/team1"},
           {name:"Go-Kart", href: "/gokart"},
           {name:"Reev", href: "/reev"},
+          {name:"Achievements", href: "/achievements"},
+          {name:"Team", href: "/team1"},
+          {name:"Developer", href: "/team1c"},
           {name:"Join Us", href: "/joinus"}].map(
             (link, i) => (
               <React.Fragment key={i}>
