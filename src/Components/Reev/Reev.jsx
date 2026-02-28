@@ -57,7 +57,6 @@ REEV is a competition that has primary focus on range and fuel efficiency. The c
           />
         ))}
 
-        {/* Carousel Inline Code */}
 <div className="carousel-container">
   <Swiper
     slidesPerView={1}           // default for mobile

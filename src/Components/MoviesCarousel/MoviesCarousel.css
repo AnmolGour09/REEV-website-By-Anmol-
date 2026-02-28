@@ -2,7 +2,7 @@
 
 .movies-list {
   width: 100%;
-  height: 500px;
+  height: 650px;
   position: relative;
   margin: 10px 0 20px;
   overflow-x: hidden;
@@ -34,10 +34,6 @@
   overflow-y: visible;
   scroll-behavior: smooth;
    gap: 50px; 
-}
-
-.card-container::-webkit-scrollbar-track {
-  background-color: #000000;
 }
 
 .card-container::-webkit-scrollbar {
@@ -214,41 +210,39 @@ display: flex;
 }
 
 /* Wrap and blur only the background image */
-.card-img-blur-wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
+
+
+.card-img {
   width: 100%;
-  height: 100%;
-  z-index: 1;
-  overflow: hidden;
+  max-width: 100%;
+  height: auto;  /* auto height, no fixed 260px */
+  object-fit: cover;
+  border-radius: 12px;
 }
 
 /* Apply blur to the image only */
+/* Update this section in your CSS */
 .card-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: blur(6px);
-  transform: scale(0.9); /* zoom slightly to hide edges */
+  border-radius: 12px;
+  /* Removed: filter: blur(6px) */
+  /* Removed: transform: scale(0.9) */
+  filter: none; 
+  transform: none;
 }
 
-/* Foreground content stays sharp */
-.card-body {
+/* Ensure the card container allows the images to stay sharp */
+.card {
   position: relative;
-  z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+  min-width: 43%;
   height: 100%;
-  width: 100%;
-  padding: px;
-  background-color: rgba(0, 0, 0, 0.3); /* optional: dark glass effect */
-  backdrop-filter: none;
+  overflow: hidden;
+  background-color: #000;
+  margin-right: 20px;
+  transition: transform 0.5s ease;
 }
-
 
 .name {
   position: relative;

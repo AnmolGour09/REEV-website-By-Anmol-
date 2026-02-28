@@ -5,9 +5,8 @@ import Index from "./Components/Page/Index";
 import Achievements from "./Components/Achievements/Achievements";
 import logo from "./assets/logo.png";
 import applogo from "./assets/gears-138199.gif";
-import About from "./Components/GoKart/About";
-import Carousl from "./Components/GoKart/Carousl";
-import Timeline from "./Components/GoKart/Timeline";
+import About from "./Components/GoKart/Gokart";
+
 import Reev from "./Components/Reev/Reev";
 import Team1 from "./Components/Team2018-2019/Team1";
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
@@ -101,8 +100,7 @@ function App() {
           element={
              <main className="w-full bg-[#101010] min-h-screen pt-20 lg:pt-24" style={{ position: 'relative', zIndex: 1 }}>
               <About />
-              <Carousl />
-              <Timeline />
+              
             </main>
           }
         />
