@@ -2,18 +2,19 @@ import React, { useRef, useState, useEffect } from "react";
 import "./Team1c.css";
 
 // Assets
-import M3 from "../../assets/Boy.jpg";
-import M4 from "../../assets/Anmol.png";
+import M3 from "../../assets/Sanika.jpg";
+import M4 from "../../assets/Anmol.jpg";
 import M5 from "../../assets/Mem1.jpg";
 import Footer from "../Footer/Footer.jsx";
 
 
 const movies = [
+  
   {
-    name: "Sanika ",
+    name: "Sanika Thorat ",
     des: "computer science",
-    img: M4,
-    link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
+    img: M3,
+    link: "https://www.linkedin.com/in/sanika-thorat-07b114287/",
   },
   {
     name: "Anmol Gour",
@@ -21,12 +22,7 @@ const movies = [
     img: M4,
     link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
   },
-  {
-    name: "Heramb Khandve",
-    des: "Mechanical Powertrain",
-    img: M4,
-    link: "https://www.linkedin.com/in/anmol-gour-4455a6305/",
-  },
+  
   
 ];
 
@@ -104,7 +100,7 @@ const MoviesCarousel = () => {
         {movies.map((m, idx) => (
           <div className="card" key={idx}>
             <div className="card-img-blur-wrapper">
-              <img src={m.img} alt={m.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
+              <img src={m.img} alt={m.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:blur-[5px]" />
             </div>
             <div className="card-body">
               <h2 className="name">{m.name}</h2>
