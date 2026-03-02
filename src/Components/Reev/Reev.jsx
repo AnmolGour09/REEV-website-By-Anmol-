@@ -7,9 +7,9 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "./Reev2.css";
 import Footer from "../Footer/Footer.jsx";
 import MultiCarousel from "../MoviesCarousel/MoviesCarousel.jsx";
-import M3 from "../../assets/Reev1.jpg";
+import M3 from "../../assets/Reev1.JPG";
 import M4 from "../../assets/Reev2.jpg";
-import M5 from "../../assets/Reev3.jpg";
+import M5 from "../../assets/Reev3.JPG";
 const secondCarouselData = [{ img: M3 }, { img: M4 }, { img: M5 }];
 export default function GoKart() {
   return (
