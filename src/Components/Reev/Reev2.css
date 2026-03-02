@@ -1,271 +1,122 @@
-/* Container */
-.reev-container {
-  min-height: 100vh;
+.gokart-container {
   background-color: black;
-  overflow: hidden; /* only block horizontal */
-}
-
-/* Header */
-.reev-header-inner {
-  background-color: black;
-  border-bottom: 2px solid red;
-  padding: 3rem 1.5rem;
-  text-align: center;
-  position: relative;
-}
-
-.reev-title {
-  font-size: clamp(2rem, 6vw, 4rem);
-  font-weight: 900;
   color: white;
-  text-transform: uppercase;
-  font-family: monospace;
-  letter-spacing: 0.05em;
 }
 
-.reev-title-underline {
-  position: absolute;
-  left: 50%;
-  bottom: -1rem;
-  height: 2px;
-  width: 80%;
-  background: linear-gradient(to right, transparent, red, transparent);
-  transform: translateX(-50%);
-}
-
-/* Sections */
-.reev-sections {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 5rem 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 6rem;
-}
-
-.section-flex {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap; /* makes it responsive */
-}
-
-.flex-row {
-  flex-direction: row;
-}
-
-.flex-row-reverse {
-  flex-direction: row-reverse;
-}
-
-.section-image-wrapper {
-  flex: 1;
-  min-width: 280px;
-}
-
-.section-image-overlay {
-  position: relative;
-  overflow: hidden;
-  border-radius: 1rem;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-  transition: transform 0.4s ease-in-out;
-}
-
-.section-image-overlay:hover {
-  transform: scale(1.05); /* hover animation */
-}
-
-.section-image-overlay::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to bottom right, rgba(0,0,0,0.6), transparent, rgba(0,0,0,0.3));
-  z-index: 10;
-}
-
-.section-image {
-  width: 100%;
-  height: auto;
-  max-height: 400px;
-  object-fit: cover;
-}
-
-.section-text {
-  flex: 1;
-  text-align: left;
-  min-width: 280px;
-}
-
-.section-title {
-  font-size: clamp(1.5rem, 4vw, 2rem);
-  font-weight: 900;
-  color: white;
-  text-transform: uppercase;
-  font-family: monospace;
-  margin-bottom: 1rem;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title-underline {
-  position: absolute;
-  left: 0;
-  bottom: -0.5rem;
-  height: 2px;
-  width: 100%;
-  background: linear-gradient(to right, transparent, red, transparent);
-  transform-origin: left;
-}
-
-.section-text-content {
-  font-size: clamp(1rem, 2.5vw, 1.125rem);
-  line-height: 1.75rem;
-  color: white;
-  max-width: 40rem;
-}
-
-.reev-link {
-  color: red;
-  font-weight: bold;
-}
+/* Carousel container */
 .carousel-container {
   width: 100%;
   max-width: 1200px;
-  margin: 3rem auto;
-  padding: 0 1rem;
+  margin: 0 auto;
+  padding: 40px 0;  /* remove horizontal padding */
+  box-sizing: border-box;
 }
 
-.slide-img {
+/* Make Swiper wrapper full width */
+.swiper {
   width: 100%;
-  height: auto;
+}
+
+/* Each slide */
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image inside slide */
+.slide-img {
+  width: 100%;         /* fill the slide width */
+  height: 260px;
   object-fit: cover;
-  border-radius: 1rem;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-  transition: transform 0.3s ease;
+  border-radius: 12px;
+  max-width: 100%;
 }
 
-.slide-img:hover {
-  transform: scale(1.05);
-}
-
-/* 📱 Tablet and Mobile */
-@media (max-width: 1024px) {
-  .section-flex {
-    flex-direction: column;
-    text-align: center;
-  }
-  .section-text {
-    text-align: center;
-  }
-  .section-image {
-    max-height: 300px;
-  }
-}
-
-@media (max-width: 600px) {
-  .reev-sections {
-    padding: 3rem 1rem;
-    gap: 4rem;
-  }
-  .section-text-content {
-    padding: 0.5rem;
-    margin: 0 auto;
-  }
-  .footer {
-    padding: 15px 10px;
-  }
-}
-
-/* Responsive Media Queries */
-/* Media Queries */
-@media (max-width: 640px) {
-  .carousel-container {
-    padding: 15px;
-  }
-  .slide-img {
-    max-height: 250px; /* prevent too tall images */
-  }
-}
-
-@media (min-width: 641px) and (max-width: 1024px) {
-  .slide-img {
-    max-height: 350px;
-  }
-}
-
-@media (min-width: 1025px) {
-  .slide-img {
-    max-height: 450px;
-  }
-}
-
-/* Enhanced Mobile Responsiveness */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .reev-container {
-    overflow-y: auto !important;
+  .slide-img {
+    height: 200px;
   }
+}
+
+@media (max-width: 480px) {
+  .slide-img {
+    height: 160px;
+  }
+}
+/* Mobile First (Base styles for phones) */
+.Ashish {
+  width: 100%;
+  background-color: #0b0b0b;
+  min-height: 40vh;    /* Slightly shorter on mobile so content isn't buried */
+  padding-top: 3rem;   /* Smaller padding (pt-12 equivalent) */
+  position: relative;
+  z-index: 1;
+  overflow: hidden;    /* Prevents horizontal scroll from animations */
+}
+
+/* Medium Screens (Tablets - 768px and up) */
+@media (min-width: 768px) {
+  .Ashish {
+    min-height: 50vh;
+    padding-top: 4rem; /* pt-16 equivalent */
+  }
+}
+
+/* Large Screens (Desktops - 1024px and up) */
+@media (min-width: 1024px) {
+  .Ashish {
+    min-height: 60vh;
+    padding-top: 6rem; /* pt-24 equivalent */
+  }
+}
+/* Ensure the wrapper doesn't have padding that separates the line from the heading */
+.timeline-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+/* Center the line globally */
+/* .timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  background: linear-gradient(to bottom, #ff0000, #330000);
+  height: 100%;
+  z-index: 1;
+} */
+.timeline-line {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 80px;
   
-  .reev-sections {
-    padding: 2rem 1rem !important;
-    gap: 3rem !important;
-  }
+  /* Reduction Logic */
+  width: fit-content;        /* Shrinks the box to fit the text only */
+  margin-left: auto;         /* Centers the box */
+  margin-right: auto;        /* Centers the box */
   
-  .section-container {
-    margin-bottom: 2rem !important;
-  }
-  
-  .section-flex {
-    flex-direction: column !important;
-    gap: 1rem !important;
-  }
-  
-  .section-image-wrapper {
-    min-width: auto !important;
-    width: 100% !important;
-  }
-  
-  .section-image {
-    max-height: 250px !important;
-    width: 100% !important;
-  }
-  
-  .section-text {
-    min-width: auto !important;
-    width: 100% !important;
-    text-align: center !important;
-  }
-  
-  .section-title {
-    font-size: clamp(1.2rem, 5vw, 1.8rem) !important;
-    text-align: center !important;
-  }
-  
-  .section-text-content {
-    font-size: clamp(0.9rem, 3vw, 1rem) !important;
-    line-height: 1.5rem !important;
-    text-align: center !important;
-    padding: 0 !important;
-  }
-  
-  /* Mobile underlines - always visible, no animations */
-  .section-title-underline {
-    opacity: 1 !important;
-    transform: scaleX(1) !important;
-    transition: none !important;
-  }
-  
-  /* Remove hover effects on mobile */
-  .section-image-overlay:hover {
-    transform: none !important;
-  }
-  
-  .slide-img:hover {
-    transform: none !important;
-  }
-  
-  .carousel-container {
-    padding: 15px 5px !important;
-    margin: 2rem auto !important;
-  }
+  background: #ff0000;
+  padding: 8px 20px;         /* Reduced padding for a sleeker look */
+  border-radius: 50px;
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  text-align: center;
+}
+
+.timeline-line h2 {
+  margin: 0;
+  font-size: 1.2rem;         /* Slightly smaller font for better fit */
+  font-weight: 800;          /* Fixed: was 80px, changed to 800 */
+  text-transform: uppercase;
+  white-space: nowrap;       /* Prevents the text from wrapping to a new line */
+}
+
+
+/* Optional: Make the ball glow */
+.moving-ball {
+  z-index: 15;
+  top: 40px;
+  border: 2px solid white;
 }

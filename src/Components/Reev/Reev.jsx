@@ -1,194 +1,210 @@
-import { motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
-import "./Reev2.css";
-import Footer from "../Footer/Footer";
-
-// Swiper imports
+import React, { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination, Autoplay } from "swiper/modules";
-
-export default function Reev2() {
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
-  // Sections data
-  const sections = [
-    {
-      title: "About SAEIndia Reev",
-      text: (
-        <>
-          Globally we are witnessing a technology shift in Automotive Propulsion towards electrification and Students in the Engineering community have to be the front runners in this change. SAEINDIA Bangalore has initiated REEV (Range Extended Electric Vehicle) in the 4 wheeler Urban Mobility space.
-
-REEV is a competition that has primary focus on range and fuel efficiency. The competition is going to drive the new age technologies in automotive industry, hybridization, light weighting, optimization, range extension, fuel awareness etc.
-        </>
-      ),
-      img: "second image.jpg",
-    },
-  ];
-
-  // Carousel slides
-  const slides = [
-    { img: "/3 image.jpg", text: "Car 1" },
-    { img: "/2 image.jpg", text: "Car 2" },
-    { img: "/second image.jpg", text: "Car 3" },
-    { img: "/bg image.png", text: "Car 4" },
-  ];
-
+import "./Reev2.css";
+import Footer from "../Footer/Footer.jsx";
+import MultiCarousel from "../MoviesCarousel/MoviesCarousel.jsx";
+import M3 from "../../assets/Reev1.jpg";
+import M4 from "../../assets/Reev2.jpg";
+import M5 from "../../assets/Reev3.jpg";
+const secondCarouselData = [{ img: M3 }, { img: M4 }, { img: M5 }];
+export default function GoKart() {
   return (
-    <main className="w-full bg-[#101010] min-h-screen overflow-y-scroll pt-20 lg:pt-24" style={{ position: 'relative', zIndex: 1 }}>
-      <div className="reev-container">
-        <div className="reev-sections">
-        {sections.map((section, index) => (
-          <Section
-            key={section.title}
-            title={section.title}
-            text={section.text}
-            img={section.img}
-            index={index}
-            isMobile={isMobile}
-          />
-        ))}
-
-<div className="carousel-container">
-  <Swiper
-    slidesPerView={1}           // default for mobile
-    spaceBetween={0}            // no gap on mobile
-    loop={true}
-    autoplay={{ delay: 2000 }}
-    pagination={{ clickable: true }}
-    modules={[Pagination, Autoplay]}
-    breakpoints={{
-      640: { slidesPerView: 1, spaceBetween: 0 },   // mobile
-      768: { slidesPerView: 2, spaceBetween: 10 },  // tablet/iPad
-      1024: { slidesPerView: 3, spaceBetween: 20 }, // desktop
-    }}
-    style={{ padding: "20px 0" }}
-  >
-    {slides.map((slide, index) => (
-      <SwiperSlide key={index}>
-        <img
-          src={slide.img}
-          alt={slide.text}
-          className="slide-img"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",  // ensures full image is visible
-          }}
-        />
-      </SwiperSlide>
-    ))}
-  </Swiper>
-</div>
-
-        </div>
+    <div className="gokart-container">
+      <div className="flex-grow">
+        <Anmol />
+        <About />
+<div style={{ margin: "50px 0" }}>
+          <MultiCarousel data={secondCarouselData} />
+        </div>      
+  <Timeline />
       </div>
       <Footer />
+    </div>
+  );
+}
+const fadeInUp = {
+  hidden: { opacity: 0, y: 40 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: "easeOut" }
+  }
+};
+function Anmol() {
+  const [animate, setAnimate] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    setAnimate(true);
+  }, []);
+  return (
+    <main className="Ashish ">
+      {/* container 1 */}
+      <section className="relative z-10">
+        <div className=" mx-auto px-4 pt-[30%] sm:pt-[15%] md:pt-[1%] pb-[12%] md:pb-[5%] mt-[7%]">
+          <div className="text-center relative">
+            <div className="Jointe">
+              <h2 className={`learn-mo-line ${animate ? "active" : ""}`}>
+                <span className="section-heading ">About REEV</span>
+              </h2>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr className="bg-black border-b border-red-500" />
+    </main>
+  );
+
+}
+
+function About() {
+  const [animate, setAnimate] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    setAnimate(true);
+  }, []);
+
+  return (
+    <main className="w-full bg-[#0b0b0b] min-h-screen pt-20 lg:pt-24" style={{ position: 'relative', zIndex: 1 }}>
+      {/* container 1 */}
+
+      <motion.section
+        className="about"
+        initial={{ opacity: 0, y: 100 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        {/* Image with fade + slide from left */}
+        <motion.img
+          src="/Gokart.jpg"
+          alt="REEV"
+          className="about-img"
+          initial={{ opacity: 0, x: -100, scale: 0.9 }}
+          whileInView={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          viewport={{ once: true, amount: 0.3 }}
+          whileHover={{ scale: 1.05, filter: "brightness(110%)" }}
+        />
+
+        {/* Text with fade + slide from right */}
+        <motion.div
+          className="about-text"
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.4 }}
+          viewport={{ once: true, amount: 0.3 }}
+          variants={fadeInUp}
+        >
+          <h2 className="font-black text-white ml-10 mb-6 tracking-wide font-mono uppercase relative inline-block text-5xl">
+            REEV
+            <motion.div
+              className="about-underline absolute -bottom-1 left-0 h-[2px] w-full"
+              style={{
+                background: 'linear-gradient(to right, transparent, red, transparent)'
+              }}
+              variants={{
+                visible: { scaleX: 0 },
+                hovered: { scaleX: 1 },
+              }}
+              initial={{ scaleX: 0, opacity: 0 }}
+              whileInView={{ scaleX: 1, opacity: 1 }}
+              transition={{ duration: 0.6, ease: "easeInOut", delay: 0.6 }}
+            />
+          </h2>
+          <motion.p
+            className="leading-relaxed ml-10 text-gray-300 font-light text-lg lg:text-xl max-w-2xl"
+            variants={fadeInUp}
+          >
+            "Resonance Racing is a Collegiate Motorsports club of AISSMS COE which provides an opportunity for students to pursue their passion for automobile engineering REEV team is a subsidiary of Resonance Racing which was started in 2021 with aim of competing in SAE Competition.
+            Resonance Racing REEV highly backed by college administration, and experienced faculty advisers. Team consists of highly technical skilled members who together in unison manufactures state of the art Champion."
+          </motion.p>
+        </motion.div>
+      </motion.section>
     </main>
   );
 }
 
-// Section Component
-function Section({ title, text, img, index, isMobile }) {
-  const isEven = index % 2 === 0;
-  const sectionRef = useRef(null);
+function Timeline() {
+  const elementRef = useRef(null);
+  const [scrollPercent, setScrollPercent] = useState(0);
+
+  const events = [
+    { season: "YEAR 2025-2026", details: "Omkar Tigote (CAPTAIN)", Events: "Reev 3rd Editior Dynamics AIR 1", image: "/season5.jpg" },
+    { season: "YEAR 2024-2025", details: "Kaushal More (CAPTAIN)", Events: "Reev 3rd Edition Virtual AIR 1 Virtuals", image: "/season5.jpg" },
+    
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!elementRef.current) return;
+      const rect = elementRef.current.getBoundingClientRect();
+      const scrollTop = window.scrollY;
+      const viewportHeight = window.innerHeight;
+      const elementTop = rect.top + scrollTop;
+      const elementHeight = rect.height;
+      const startPoint = elementTop - viewportHeight;
+      const endPoint = elementTop + elementHeight;
+      const totalDistance = endPoint - startPoint;
+      const currentProgress = scrollTop - startPoint;
+      const scroll = Math.min(Math.max((currentProgress / totalDistance) * 100, 0), 100);
+      setScrollPercent(scroll);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <motion.div
-      ref={sectionRef}
-      className="section-container"
-      initial={{ opacity: isMobile ? 1 : 0, y: isMobile ? 0 : 100 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-    >
-      <motion.div
-        className="section-inner"
-        initial="rest"
-        whileHover="hover"
-        animate="rest"
-      >
-        <div
-          className={`section-flex ${
-            isEven ? "flex-row" : "flex-row-reverse"
-          }`}
-        >
-          {/* Image */}
-          <motion.div
-            className="section-image-wrapper"
-            initial={{
-              opacity: isMobile ? 1 : 0,
-              x: isMobile ? 0 : isEven ? -100 : 100,
-              scale: isMobile ? 1 : 0.9,
-            }}
-            whileInView={{ opacity: 1, x: 0, scale: 1 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.2,
-            }}
-            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-          >
-            <div className="section-image-overlay">
-              <motion.img
-                src={img}
-                alt={title}
-                className="section-image"
-                variants={{
-                  rest: {
-                    filter: isMobile
-                      ? "brightness(100%)"
-                      : "brightness(50%)",
-                    scale: 1,
-                  },
-                  hover: { filter: "brightness(120%)", scale: 1.05 },
-                }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                loading="lazy"
-              />
-            </div>
-          </motion.div>
+    <section ref={elementRef} className="timeline-container">
+      <div className="timeline-header-box ">
+        <h2><b>2014 Club Inauguration</b></h2>
+      </div>
 
-          {/* Text */}
-          <motion.div
-            className="section-text"
-            initial={{
-              opacity: isMobile ? 1 : 0,
-              x: isMobile ? 0 : isEven ? 100 : -100,
-              y: isMobile ? 0 : 30,
-            }}
-            whileInView={{ opacity: 1, x: 0, y: 0 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              delay: 0.4,
-            }}
-            viewport={{ once: true, amount: 0.3, margin: "-100px" }}
-          >
-            <h2 className="section-title">
-              {title}
-              <motion.div
-                className="section-title-underline"
-                variants={{
-                  rest: { opacity: isMobile ? 1 : 0 },
-                  hover: { opacity: 1 },
-                }}
-                transition={{ duration: 0.6, ease: "easeInOut" }}
-              />
-            </h2>
-            <div className="section-text-content">{text}</div>
-          </motion.div>
-        </div>
-        
-      </motion.div>
-    </motion.div>
+      {/* The Vertical Line */}
+      <div className="central-line">
+        <motion.div 
+          className="moving-ball" 
+          style={{ top: `${scrollPercent}%` }} 
+        />
+      </div>
+
+      <div className="events-wrapper">
+        {events.map((event, index) => {
+          const isEven = index % 2 === 0;
+          return (
+            <motion.div
+              key={index}
+              className={`timeline-item ${isEven ? "left-item" : "right-item"}`}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true, amount: 0.2 }}
+            >
+              <div className="timeline-content">
+                <div className="text-box">
+                  <h3 className="season-year">{event.season}</h3>
+                  <p className="captain-name">{event.details}</p>
+                  <h4 className="event-title">{event.Events}</h4>
+                </div>
+                
+                <div className="image-box">
+                  <img src={event.image} alt={event.season} className="timeline-img" />
+                </div>
+              </div>
+              
+              {/* Dot on the line for desktop */}
+              <div className="timeline-dot"></div>
+            </motion.div>
+          );
+        })}
+      </div>
+    </section>
   );
 }

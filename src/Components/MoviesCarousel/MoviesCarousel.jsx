@@ -1,101 +1,80 @@
-  import React, { useRef, useState, useEffect } from "react";
-  import { motion } from "motion/react";
-  import "./MoviesCarousel.css";
-  import img1 from "/season1.jpg";
-  import img2 from "/season 2.jpg";
-  import img3 from "/season3.png";
-  import img4 from "/Picture11.jpg";
-  const movies = [
-    {
-      img: img1,
-    },
-    {
-      img: img2,
-    },
-    {
-      img: img3,
-    },
-    {
-      img: img4,
-    },
-  ];
+import React, { useRef, useState, useEffect, useCallback } from "react";
+import "./MoviesCarousel.css";
 
-  const MoviesCarousel = () => {
-    const [animate, setAnimate] = useState(false);
-        const sectionRef = useRef(null);
-      
-        useEffect(() => {
-          setAnimate(true);
-        }, []);
-    const containerRef = useRef(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const intervalRef = useRef(null);
-  
-    const scroll = (index) => {
-      const container = containerRef.current;
-      if (container) {
-        const scrollAmount = container.clientWidth;
-        container.scrollTo({
-          left: index * scrollAmount,
-          behavior: "smooth",
-        });
-      }
-      setCurrentIndex(index);
-    };
-  
-    // Auto-scroll
-    const startAutoScroll = () => {
-      if (intervalRef.current) return; // prevent duplicate intervals
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prevIndex) => {
-          const newIndex = (prevIndex + 1) % movies.length;
-          scroll(newIndex);
-          return newIndex;
-        });
-      }, 2500); // 2.5s interval
-    };
-  
-    const stopAutoScroll = () => {
+const MultiCarousel = ({ data }) => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const containerRef = useRef(null);
+  const intervalRef = useRef(null);
+
+  const movies = data || [];
+
+  const scrollTo = useCallback((index) => {
+    const container = containerRef.current;
+    if (container && movies.length > 0) {
+      // Aapke CSS mein card ki width min-width: 43% hai + gap: 50px
+      // Isliye clientWidth use karna best hai dynamic scrolling ke liye
+      const scrollAmount = container.clientWidth / 2; 
+      container.scrollTo({
+        left: index * scrollAmount,
+        behavior: "smooth",
+      });
+    }
+    setCurrentIndex(index);
+  }, [movies.length]);
+
+  const startAutoScroll = useCallback(() => {
+    if (intervalRef.current || movies.length === 0) return;
+    intervalRef.current = setInterval(() => {
+      setCurrentIndex((prev) => {
+        const nextIndex = (prev + 1) % movies.length;
+        scrollTo(nextIndex);
+        return nextIndex;
+      });
+    }, 3000); // 3 seconds interval
+  }, [movies.length, scrollTo]);
+
+  const stopAutoScroll = useCallback(() => {
+    if (intervalRef.current) {
       clearInterval(intervalRef.current);
       intervalRef.current = null;
-    };
-  
-    useEffect(() => {
-      startAutoScroll();
-      return () => stopAutoScroll();
-    }, []);
-  
-    return (
-      
-      <div className="movies-list" 
-      onMouseEnter={stopAutoScroll}
+    }
+  }, []);
+
+  useEffect(() => {
+    startAutoScroll();
+    return () => stopAutoScroll();
+  }, [startAutoScroll, stopAutoScroll]);
+
+  if (movies.length === 0) return null;
+
+  return (
+    <div 
+      className="movies-list" 
+      onMouseEnter={stopAutoScroll} 
       onMouseLeave={startAutoScroll}
-      onTouchStart={stopAutoScroll}
-      onTouchEnd={startAutoScroll}
-      >
-        <div className="card-container" ref={containerRef}>
-          {movies.map((m, idx) => (
-            <div className="card" key={idx}>
-              <div className="card-img-blur-wrapper">
-                <img src={m.img} alt={m.name} className="" />
+    >
+      <div className="card-container" ref={containerRef}>
+        {movies.map((m, idx) => (
+          <div className="card" key={idx}>
+            <img 
+              src={m.img} 
+              alt={`slide-${idx}`} 
+              className="" 
+            />
+            {/* Agar aapko card ke upar naam dikhana ho toh ye use karein */}
+            {m.name && (
+              <div className="card-body">
+                <h2 className="name">{m.name}</h2>
+                <p className="des">{m.des}</p>
               </div>
-              
-            </div>
-          ))}
-        </div>
-
-        {/* Circle Indicators */}
-        <div className="indicator-container">
-          {movies.map((_, idx) => (
-            <div
-              key={idx}
-              className={`indicator ${idx === currentIndex ? "active" : ""}`}
-              onClick={() => scroll(idx)}
-            ></div>
-          ))}
-        </div>
+            )}
+          </div>
+        ))}
       </div>
-    );
-  };
 
-  export default MoviesCarousel;
+      
+    </div>
+  );
+};
+
+export default MultiCarousel;

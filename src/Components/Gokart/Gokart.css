@@ -1,73 +1,118 @@
-.gokart-container {
-  background-color: black;
-  color: white;
+/* --- Timeline Container --- */
+.timeline-container {
+  position: relative;
+  padding: 80px 20px;
+  background: #0b0b0b;
+  overflow: hidden;
 }
 
-/* Carousel container */
-.carousel-container {
-  width: 100%;
+.timeline-header-box {
+  position: relative;
+  z-index: 10;
+  width: fit-content;
+  margin: 0 auto 60px auto;
+  background: #ff0000;
+  padding: 10px 25px;
+  border-radius: 50px;
+  color: white;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  text-align: center;
+}
+
+/* --- The Line --- */
+.central-line {
+  position: absolute;
+  left: 50%;
+  top: 150px;
+  bottom: 50px;
+  width: 4px;
+  background: linear-gradient(to bottom, #ff0000, #330000);
+  transform: translateX(-50%);
+}
+
+.moving-ball {
+  position: absolute;
+  left: 50%;
+  width: 15px;
+  height: 15px;
+  background: rgb(255, 0, 0);
+  border: 2px solid #ff0000;
+  border-radius: 50%;
+  transform: translate(-0%, -0%);
+  box-shadow: 0 0 10px #ff0000;
+  z-index: 20;
+}
+
+/* --- Timeline Items --- */
+.events-wrapper {
+  position: relative;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 0;  /* remove horizontal padding */
-  box-sizing: border-box;
 }
 
-/* Make Swiper wrapper full width */
-.swiper {
-  width: 100%;
-}
-
-/* Each slide */
-.swiper-slide {
+.timeline-item {
+  position: relative;
+  width: 50%;
+  margin-bottom: 60px;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
-/* Image inside slide */
-.slide-img {
-  width: 100%;         /* fill the slide width */
-  height: 260px;
-  object-fit: cover;
-  border-radius: 12px;
-  max-width: 100%;
+.timeline-item.left-item {
+  left: 0;
+  padding-right: 40px;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .slide-img {
-    height: 200px;
-  }
+.timeline-item.right-item {
+  left: 50%;
+  padding-left: 40px;
 }
 
-@media (max-width: 480px) {
-  .slide-img {
-    height: 160px;
-  }
-}
-/* Mobile First (Base styles for phones) */
-.Ashish {
+.timeline-content {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  border-radius: 15px;
+  border: 1px solid rgba(255, 0, 0, 0.2);
   width: 100%;
-  background-color: #101010;
-  min-height: 40vh;    /* Slightly shorter on mobile so content isn't buried */
-  padding-top: 3rem;   /* Smaller padding (pt-12 equivalent) */
-  position: relative;
-  z-index: 1;
-  overflow: hidden;    /* Prevents horizontal scroll from animations */
+  transition: transform 0.3s ease;
 }
 
-/* Medium Screens (Tablets - 768px and up) */
-@media (min-width: 768px) {
-  .Ashish {
-    min-height: 50vh;
-    padding-top: 4rem; /* pt-16 equivalent */
+.timeline-content:hover {
+  transform: scale(1.02);
+  border-color: #ff0000;
+}
+
+.timeline-img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 15px;
+  object-fit: cover;
+}
+
+.season-year { color: #ff0000; font-weight: 800; font-size: 1.5rem; }
+.captain-name { color: #ffffff; margin: 5px 0; font-size: 1.4rem; }
+.event-title { color: #c3bdbd; font-size: 1.1rem; }
+
+/* --- Responsive Breakpoint (Mobile) --- */
+@media (max-width: 768px) {
+  .central-line {
+    left: 20px; /* Move line to the left */
   }
-}
+  
+  .moving-ball {
+    left: 13px;
+  }
 
-/* Large Screens (Desktops - 1024px and up) */
-@media (min-width: 1024px) {
-  .Ashish {
-    min-height: 60vh;
-    padding-top: 6rem; /* pt-24 equivalent */
+  .timeline-item {
+    width: 100%;
+    left: 0 !important;
+    padding-left: 50px !important; /* Space for the line */
+    padding-right: 0 !important;
+  }
+
+  .timeline-header-box {
+    margin-left: 0;
+    font-size: 0.9rem;
   }
 }

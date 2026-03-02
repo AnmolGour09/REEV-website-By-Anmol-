@@ -7,8 +7,8 @@ import { motion } from "motion/react"
 import TailwindSlideshow from "./Slideshow";
 import Footer from "../../Components/Footer/Footer.jsx";
 import go from "../../assets/goc.jpg";
-import ev from "../../assets/eve.jpg";
-
+import ev from "../../assets/eve.png";
+import videoFile from "../../assets/video1.mp4";
 
 // Assets
 import slideImg1 from "../../assets/Asset_13_img.png";
@@ -72,56 +72,57 @@ export default function Index() {
   return (
     <main className={`w-full bg-[#101010] ${isMobile ? 'min-h-screen' : 'h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth'}`}>
       {/* Hero Section */}
-      <motion.section
-        ref={heroRef}
-        data-section="hero"
-        className={`relative w-full flex items-center justify-center bg-[#101010] overflow-hidden ${isMobile ? 'min-h-[80vh] py-8' : 'h-screen snap-start'}`}
-        style={!isMobile ? { scrollSnapAlign: 'start' } : {}}
-        initial={!isMobile ? { opacity: 0, y: 30, scale: 0.98 } : false}
-        animate={!isMobile ? { opacity: 1, y: 0, scale: 1 } : false}
-        transition={!isMobile ? { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] } : {}}
+      {/* Hero Section */}
+<motion.section
+  ref={heroRef}
+  className={`relative w-full flex items-center justify-center bg-black overflow-hidden ${isMobile ? 'min-h-[80vh]' : 'h-screen snap-start'}`}
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 1 }}
+>
+  <video
+    src={videoFile}
+    autoPlay
+    muted
+    loop
+    playsInline
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+
+  {/* Overlay for readability */}
+  <div className="absolute inset-0 bg-black/40 z-0"></div>
+
+  <div className="relative z-10 text-center text-white px-4">
+    <motion.h1
+      className="text-4xl md:text-8xl font-bold italic text-red-600 font-mono mb-4"
+      initial={{ x: -100, opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
+      transition={{ duration: 0.8 }}
+    >
+      Resonance <span className="text-white">Racing</span>
+    </motion.h1>
+    
+    <motion.h2 
+      className="text-lg md:text-3xl font-mono mb-8"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+    >
+      Transforming Will Power into Horsepower
+    </motion.h2>
+
+    {!isMobile && (
+      <motion.a
+        href="#about"
+        className="text-red-600 font-mono text-lg hover:text-white transition-all duration-300 hover:scale-105"
+        animate={{ y: [0, 10, 0] }}
+        transition={{ duration: 2, repeat: Infinity }}
       >
-        <TailwindSlideshow />
-
-        <motion.div
-          className={`absolute text-center text-white z-10 ${isMobile ? 'inset-0 flex flex-col justify-center items-center px-4' : ''}`}
-          initial={!isMobile ? { opacity: 0, y: 50, scale: 0.95 } : false}
-          animate={!isMobile ? { opacity: 1, y: 0, scale: 1 } : false}
-          transition={!isMobile ? { duration: 1.0, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] } : {}}
-        >
-          <motion.h1
-            className={`drop-shadow-lg font-bold italic text-red-600 font-mono mb-4 ${isMobile ? 'text-xl text-center leading-tight max-w-sm' : 'text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl px-4'}`}
-            initial={!isMobile ? { opacity: 0, y: 30 } : false}
-            animate={!isMobile ? { opacity: 1, y: 0 } : false}
-            transition={!isMobile ? { duration: 0.8, delay: 0.4, ease: [0.25, 0.46, 0.45, 0.94] } : {}}
-          >
-            Resonance Racing REEV and GOKART
-          </motion.h1>
-          <motion.h2
-            className={`drop-shadow-lg text-white font-mono mb-8 ${isMobile ? 'text-sm text-center leading-relaxed max-w-xs' : 'text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-5xl px-4'}`}
-            initial={!isMobile ? { y: 30 } : false}
-            animate={!isMobile ? { y: 0 } : false}
-            transition={!isMobile ? { duration: 1.0, delay: 0.7, ease: [0.34, 1.56, 0.64, 1] } : {}}
-          >
-            Transforming Will Power into Horsepower
-          </motion.h2>
-          {!isMobile && (
-            <motion.a
-              href="#about"
-              className="text-red-600 font-mono text-lg hover:text-white transition-all duration-300 hover:scale-105"
-              initial={{ y: 30 }}
-              animate={{ y: [0, 5, 0] }}
-              transition={{
-                y: { duration: 2, repeat: Infinity, ease: [0.34, 1.56, 0.64, 1] },
-                initial: { duration: 1.0, delay: 0.9, ease: [0.34, 1.56, 0.64, 1] }
-              }}
-            >
-              Scroll Down
-            </motion.a>
-          )}
-        </motion.div>
-      </motion.section>
-
+        Scroll Down
+      </motion.a>
+    )}
+  </div>
+</motion.section>
       {/* Spacer - removed to allow proper center snapping */}
       <div id="about" className={`${isMobile ? 'h-8' : 'h-0'}`}></div>
 
