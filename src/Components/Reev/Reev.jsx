@@ -10,6 +10,7 @@ import MultiCarousel from "../MoviesCarousel/MoviesCarousel.jsx";
 import M3 from "../../assets/Reev1.JPG";
 import M4 from "../../assets/Reev2.jpg";
 import M5 from "../../assets/Reev3.JPG";
+import gokartImg from "../../assets/Gokart.jpg";
 const secondCarouselData = [{ img: M3 }, { img: M4 }, { img: M5 }];
 export default function GoKart() {
   return (
@@ -83,7 +84,7 @@ function About() {
       >
         {/* Image with fade + slide from left */}
         <motion.img
-          src="/Gokart.jpg"
+          src={gokartImg}
           alt="REEV"
           className="about-img"
           initial={{ opacity: 0, x: -100, scale: 0.9 }}
