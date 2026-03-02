@@ -6,7 +6,7 @@ import { FaTools, FaHandsHelping } from "react-icons/fa";
 import { motion } from "motion/react"
 import TailwindSlideshow from "./Slideshow";
 import Footer from "../../Components/Footer/Footer.jsx";
-import go from "../../assets/goc.jpg";
+import go from "../../assets/goc.JPG";
 import ev from "../../assets/eve.png";
 import videoFile from "../../assets/video1.mp4";
 
@@ -145,25 +145,7 @@ export default function Index() {
           </div>
 
           {/* Text Section */}
-          <div className="text-center w-full">
-            <h2 className="font-black text-white mb-6 tracking-wide font-mono uppercase relative inline-block text-2xl">
-              About Us
-              <div
-                className="absolute -bottom-1 left-0 h-[2px] w-full"
-                style={{
-                  background: 'linear-gradient(to right, transparent, red, transparent)'
-                }}
-              />
-            </h2>
-            <p className="leading-relaxed text-gray-300 font-light text-sm px-2">
-              "Globally we are witnessing a technology shift in the automotive
-              industry from conventional fuel-powered vehicles to alternative
-              fuel-powered vehicles. With the Indian government's initiative
-              towards faster adoption of EVs through FAME-II policy, we are
-              aligned to take this opportunity to develop indigenous solutions
-              for the Indian market."
-            </p>
-          </div>
+          
         </section>
       ) : (
         <motion.section
