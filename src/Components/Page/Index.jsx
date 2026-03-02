@@ -3,7 +3,7 @@ import { GiStumpRegrowth } from "react-icons/gi";
 import { BsFillPeopleFill, BsFillLaptopFill } from "react-icons/bs";
 import { TbBulbFilled } from "react-icons/tb";
 import { FaTools, FaHandsHelping } from "react-icons/fa";
-import { motion } from "motion/react"
+import { motion } from "framer-motion";
 import TailwindSlideshow from "./Slideshow";
 import Footer from "../../Components/Footer/Footer.jsx";
 import go from "../../assets/Annn.jpg";
