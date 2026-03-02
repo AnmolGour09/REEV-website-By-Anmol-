@@ -6,8 +6,8 @@ import { FaTools, FaHandsHelping } from "react-icons/fa";
 import { motion } from "motion/react"
 import TailwindSlideshow from "./Slideshow";
 import Footer from "../../Components/Footer/Footer.jsx";
-import go from "../../assets/Ann.JPG";
-import ev from "../../assets/eve.png";
+import go from "../../assets/Annn.jpg";
+import ev from "../../assets/evev.jpg";
 import videoFile from "../../assets/video1.mp4";
 
 // Assets
