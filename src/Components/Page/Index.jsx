@@ -11,12 +11,21 @@ import ev from "../../assets/evev.jpg";
 import videoFile from "../../assets/video1.mp4";
 
 // Assets
+<<<<<<< HEAD
 import slideImg1 from "../../assets/Sponser1.png";
 import slideImg2 from "../../assets/Sponser2.png";
 import slideImg3 from "../../assets/Sponser3.png";
 import slideImg4 from "../../assets/Sponser4.png";
 import slideImg5 from "../../assets/Sponser5.png";
 import slideImg6 from "../../assets/Sponser6.jpg";
+=======
+import slideImg1 from "../../assets/Asset_13_img.png";
+import slideImg2 from "../../assets/Dynamic_Lazer_img.png";
+import slideImg3 from "../../assets/Dynamic_Lazer_img.png";
+import slideImg4 from "../../assets/Dynamic_Lazer_img.png";
+import slideImg5 from "../../assets/Dynamic_Lazer_img.png";
+import slideImg6 from "../../assets/Dynamic_Lazer_img.png";
+>>>>>>> 3b5701b9f232d5680febe3be137086d81325790d
 
 // Splide imports
 import { Splide, SplideSlide } from "@splidejs/react-splide";
