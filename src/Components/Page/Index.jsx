@@ -11,12 +11,12 @@ import ev from "../../assets/evev.jpg";
 import videoFile from "../../assets/video1.mp4";
 
 // Assets
-import slideImg1 from "../../assets/Asset_13_img.png";
-import slideImg2 from "../../assets/Dynamic_Lazer_img.png";
-import slideImg3 from "../../assets/Dynamic_Lazer_img";
-import slideImg4 from "../../assets/Rafftarlogo.jpg";
-import slideImg5 from "../../assets/ansys_img.png";
-import slideImg6 from "../../assets/Kapres_Automation_img.png";
+import slideImg1 from "../../assets/Sponser1.png";
+import slideImg2 from "../../assets/Sponser2.png";
+import slideImg3 from "../../assets/Sponser3.png";
+import slideImg4 from "../../assets/Sponser4.png";
+import slideImg5 from "../../assets/Sponser5.png";
+import slideImg6 from "../../assets/Sponser6.jpg";
 
 // Splide imports
 import { Splide, SplideSlide } from "@splidejs/react-splide";
