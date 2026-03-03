@@ -14,9 +14,9 @@ import videoFile from "../../assets/video1.mp4";
 import slideImg1 from "../../assets/Asset_13_img.png";
 import slideImg2 from "../../assets/Dynamic_Lazer_img.png";
 import slideImg3 from "../../assets/Dynamic_Lazer_img.png";
-import slideImg4 from "../../assets/Rafftarlogo.jpg";
-import slideImg5 from "../../assets/ansys_img.png";
-import slideImg6 from "../../assets/Kapres_Automation_img.png";
+import slideImg4 from "../../assets/Dynamic_Lazer_img.png";
+import slideImg5 from "../../assets/Dynamic_Lazer_img.png";
+import slideImg6 from "../../assets/Dynamic_Lazer_img.png";
 
 // Splide imports
 import { Splide, SplideSlide } from "@splidejs/react-splide";
