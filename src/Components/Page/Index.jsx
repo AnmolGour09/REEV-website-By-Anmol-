@@ -9,7 +9,7 @@ import Footer from "../../Components/Footer/Footer.jsx";
 import go from "../../assets/Annn.jpg";
 import ev from "../../assets/evev.jpg";
 import videoFile from "../../assets/video1.mp4";
-import r1 from "../../assets/darshak kamani.jpg";
+import r1 from "../../assets/darshak.jpg";
 import r2 from "../../assets/Bilal.jpg";
 import r3 from "../../assets/Nikhil.jpg";
 import r4 from "../../assets/Mahesh.jpg";
